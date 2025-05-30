@@ -13,10 +13,10 @@ Xiong is with the State Key Laboratory of Integrated Service Networks, School of
 E-mail: northboat@163.com
 
 ### 🛠 Skills
-* 熟悉 Java、Go 的拼写
+* 熟悉 Java 的拼写
 * 了解 Linux 的开关机方式
-* 擅长 Vue、React 的抄写
-* 精通 pull 和 push
+* 擅长 Vue 的抄写
+* 精通 Clone 和 Push
 
 ## :email: Get in Touch
 
