@@ -12,7 +12,7 @@ pnpm-lock.yaml
 # vscode
 .vscode
 
-# vuepress
+# vuepress 部署 GitHub Page 用
 # docs/.vuepress/dist
 
 # 百度链接推送
@@ -20,6 +20,3 @@ urls.txt
 
 # mac
 .DS_Store
-
-# 用于 Github Page 的静态文件
-# dist

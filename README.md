@@ -20,7 +20,6 @@ E-mail: northboat@163.com
 
 ## :email: Get in Touch
 
-- WeChat or QQ: <a :href="qqUrl" class='qq'>{{ QQ }}</a>
 - Email: <a href="mailto:arkrypto@qq.com">arkrypto@qq.com</a>
 - GitHub: <a href="https://github.com/arkcyrpto">Arkrypto</a>
 

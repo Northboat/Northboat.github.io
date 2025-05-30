@@ -4,7 +4,7 @@ home: true
 # heroImage: /img/bg.png
 
 heroText: Arkrypto's Blog
-tagline: 少则得，多则惑，无相则真
+tagline: 切勿着相
 
 # actionText: 立刻进入 →
 # actionLink: /web/
