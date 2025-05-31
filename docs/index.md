@@ -4,7 +4,7 @@ home: true
 # heroImage: /img/bg.png
 
 heroText: Arkrypto's Blog
-tagline: 切勿着相
+tagline: 不要着了相
 
 # actionText: 立刻进入 →
 # actionLink: /web/
