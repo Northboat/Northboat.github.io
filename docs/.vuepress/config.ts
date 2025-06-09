@@ -319,7 +319,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
   ],
 
   markdown: {
-    lineNumbers: true,
+    lineNumbers: false,
     extractHeaders: ['h2', 'h3'], // 提取标题到侧边栏的级别，默认['h2', 'h3']
 	externalLinks: { target: '_blank', rel: 'nofollow noopener noreferrer' },
 	plugins: [
