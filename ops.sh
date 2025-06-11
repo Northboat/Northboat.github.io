@@ -87,7 +87,7 @@ while true; do
 			exit_animation
 			echo ""
 			read -p "		        需要大肥猫帮你关机吗(y/n) " confirm
-			[[ $confirm == [yY] ]] && shutdown -s -t 10 && echo "将在十秒后关机" && sleep 4 && print_cat || exit 0  # 退出脚本
+			[[ $confirm == [yY] ]] && shutdown -s -t 10 && exit 0  # 退出脚本
 			;;
         *)
 			echo "无效输入，请重试"; sleep 1; continue ;;
