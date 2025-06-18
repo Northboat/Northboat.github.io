@@ -19,15 +19,18 @@
 // // 代码块
 // $lineNumbersWrapperWidth = 2.5rem
 
+// 代码块行号和实际行数对不齐（即使固定成一样），只好用 bug 修复 bug
 /* 保证代码行高固定 */
 div[class*="language-"] pre[class*="language-"] {
-  line-height: 1.5 !important;
+  line-height: 23.043px !important;
   white-space: pre !important;
+  overflow-x: auto;
 }
 
 /* 保证行号行高一致 */
 div[class*="language-"].line-numbers .line-numbers-rows > span {
-  height: 1.5em !important;
+  font-size: 14px;        /* 举例：14px 等宽字体 */
+  line-height: 24px;      /* 用整数像素，不用 1.5/1.6 这种带小数的 em */
 }
 
 // // 浅色模式
