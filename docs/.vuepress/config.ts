@@ -153,8 +153,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 
     // 博主信息 (显示在首页侧边栏)
     blogger: {
-		avatar: '/img/avatar.gif',
-		title: '可爱捏',
+		avatar: '/img/avatar.png',
 		name: 'Arkrypto',
 		slogan: '就在坚冰还盖着北海的时候，我看到了怒放的梅花',
     },
@@ -182,9 +181,9 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 
     // 页脚信息
     footer: {
-		createYear: 2020, // 博客创建年份
+		createYear: 2021, // 博客创建年份
 		copyrightInfo:
-			'Arkrypto | <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/LICENSE" target="_blank">MIT License</a>', // 博客版权信息、备案信息等，支持a标签或换行标签</br>
+			'Arkrypto | <a href="https://github.com/Arkrypto/Arkrypto.github.io/blob/main/LICENSE" target="_blank">MIT License</a>', // 博客版权信息、备案信息等，支持a标签或换行标签</br>
     },
 
     // 扩展自动生成frontmatter（当md文件的frontmatter不存在相应的字段时将自动添加。不会覆盖已有的数据。）
@@ -214,41 +213,29 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 	[
 		'@vuepress-reco/vuepress-plugin-bgm-player', {	//npm i @vuepress-reco/vuepress-plugin-bgm-player -D
 			"audios": [
-			//{
-				//name: '白羊',
-				//artist: 'Arkrypto',
-				//url: '/song/白羊.mp3',
-				//cover: '/img/error.jpg'
-			//},
 			{
 				name: '太阳照常升起',
 				artist: '久石譲',
 				url: '/song/The Sun Also Rises.mp3',
-				cover: '/img/error.jpg'
+				cover: '/img/logo.png'
 			},
 			{
 				name: 'Merry Christmas Mr. Lawrence',
 				artist: '坂本龍一',
 				url: '/song/Merry Christmas Mr. Lawrence.mp3',
-				cover: '/img/error.jpg'
+				cover: '/img/logo.png'
 			},
 			{
 				name: 'Love and Mangoes',
 				artist: '刘水秀',
 				url: '/song/Love and Mangoes.m4a',
-				cover: '/img/error.jpg'
+				cover: '/img/logo.png'
 			},],
-
-			// 默认播放
-			//"autoplay": true,
-			// 是否默认缩小
-			"autoShrink": true,
-			// 缩小时缩为哪种模式
-			"shrinkMode": 'float', // mini/float
-			// 悬浮方位
-			"floatPosition": 'left',
-			// 悬浮窗样式
-			"floatStyle":{ "bottom": "10px", "z-index": "999999" },
+			//"autoplay": true, // 默认播放
+			"autoShrink": true, // 是否默认缩小
+			"shrinkMode": 'float', // mini/float // 缩小时缩为哪种模式
+			"floatPosition": 'left', // 悬浮方位
+			"floatStyle":{ "bottom": "10px", "z-index": "999999", "background-color": "blackcadetblue" }, // 悬浮窗样式
 	}],
   
     [
