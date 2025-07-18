@@ -20,7 +20,7 @@ E-mail: northboat@163.com
 
 ## :email: Get in Touch
 
-- Email: <a href="mailto:arkrypto@qq.com">arkrypto@qq.com</a>
+- Email: <a href="mailto:northboat@163.com">northboat@163.com</a>
 - GitHub: <a href="https://github.com/arkcyrpto">Arkrypto</a>
 
 ## 🎨 Theme

@@ -3,7 +3,7 @@ home: true
 
 # heroImage: /img/bg.png
 
-heroText: Arkrypto's Blog
+heroText: Northboat's Blog
 tagline: 全心全意为人民服务
 
 # actionText: 立刻进入 →

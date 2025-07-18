@@ -7,8 +7,8 @@ import { VdoingThemeConfig } from 'vuepress-theme-vdoing/types'
 import dayjs from 'dayjs'
 import htmlModules from './config/htmlModules' // 自定义插入的html块
 
-const DOMAIN_NAME = 'arkrypto.github.io' // 域名 (不带https)
-const WEB_SITE = `https://arkrypto.github.io` // 网址
+const DOMAIN_NAME = 'northboat.github.io' // 域名 (不带https)
+const WEB_SITE = `https://northboat.github.io` // 网址
 
 export default defineConfig4CustomTheme<VdoingThemeConfig>({
   // theme: 'vdoing', // 使用npm主题包
@@ -17,7 +17,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
   locales: {
     '/': {
       lang: 'zh-CN',
-      title: "Arkrypto",
+      title: "Northboat",
       description: 'My Wiki',
     }
   },
@@ -29,7 +29,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 	// 私密文章配置
 	privatePage: {
 		openPrivate: true, // 开启私密文章验证，默认开启（true），如果不开启（false），则下面配置都失效
-		username: "Arkrypto", // 管理员用户名
+		username: "Northboat", // 管理员用户名
 		password: "011026", // 管理员密码
 		expire: "1d", // 登录过期时间：1d 代表 1 天，1h 代表 1 小时，仅支持这两个单位，不加单位代表秒。过期后访问私密文章重新输入用户名和密码。默认一天
 		loginPath: "/login/", // 引用登录组件的 md 文章的 permalink（必须），无默认值
@@ -100,7 +100,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     ],
     sidebarDepth: 2, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
     logo: '/img/logo.png', // 导航栏logo
-    repo: 'Arkrypto', // 导航栏右侧生成Github链接
+    repo: 'Northboat', // 导航栏右侧生成Github链接
     searchMaxSuggestions: 10, // 搜索结果显示最大数
     lastUpdated: '上次更新', // 开启更新时间，并配置前缀文字   string | boolean (取值为git提交时间)
     docsDir: 'docs', // 编辑的文件夹
@@ -147,14 +147,14 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 
     // 文章默认的作者信息，(可在md文件中单独配置此信息) string | {name: string, link?: string}
     author: {
-		name: 'Arkrypto', // 必需
-		link: 'https://github.com/Arkrypto', // 可选的
+		name: 'Northboat', // 必需
+		link: 'https://github.com/northboat', // 可选的
     },
 
     // 博主信息 (显示在首页侧边栏)
     blogger: {
 		avatar: '/img/avatar.png',
-		name: 'Arkrypto',
+		name: 'Northboat',
 		slogan: '就在坚冰还盖着北海的时候，我看到了怒放的梅花',
     },
 
@@ -165,12 +165,12 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 		{
 			iconClass: 'icon-youjian',
 			title: '邮件',
-			link: 'mailto:Arkrypto@qq.com',
+			link: 'mailto:northboat@163.com',
 		},
 		{
 			iconClass: 'icon-github',
 			title: 'GitHub',
-			link: 'https://github.com/Arkrypto',
+			link: 'https://github.com/northboat',
 		},
 		{
 			iconClass: 'icon-erji',
@@ -183,14 +183,14 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     footer: {
 		createYear: 2021, // 博客创建年份
 		copyrightInfo:
-			'Arkrypto | <a href="https://github.com/Arkrypto/Arkrypto.github.io/blob/main/LICENSE" target="_blank">MIT License</a>', // 博客版权信息、备案信息等，支持a标签或换行标签</br>
+			'Northboat | <a href="https://github.com/Northboat/Northboat.github.io/blob/main/LICENSE" target="_blank">MIT License</a>', // 博客版权信息、备案信息等，支持a标签或换行标签</br>
     },
 
     // 扩展自动生成frontmatter（当md文件的frontmatter不存在相应的字段时将自动添加。不会覆盖已有的数据。）
     extendFrontmatter: {
 		author: {
-			name: 'Arkrypto',
-			link: 'https://github.com/Arkrypto',
+			name: 'Northboat',
+			link: 'https://github.com/Northboat',
 		}
     },
 
@@ -203,7 +203,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     ['link', { rel: 'icon', href: '/img/favicon.ico' }], //favicons，资源放在public文件夹
 	['link', { rel: 'stylesheet', href: 'https://at.alicdn.com/t/font_3129839_xft6cqs5gc.css' }], // 阿里在线图标
     ['noscript', {}, '<meta http-equiv="refresh" content="0; url=https://www.youngkbt.cn/noscript/"><style>.theme-vdoing-content { display:none }'],
-	['meta', { name: 'keywords', content: 'Arkrypto, ComputerScience, DevOps, Crypto' }],
+	['meta', { name: 'keywords', content: 'Northboat, ComputerScience, DevOps, CyberSecurity' }],
     ['meta', { name: 'theme-color', content: '#11a8cd' }], // 移动浏览器主题颜色
   ],
 
