@@ -53,8 +53,6 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 	[	
 		"/img/bg.webp",
 		"/img/street.webp",
-		"/img/titan.webp",
-		"/img/timebomb.webp",
 	],
 	bodyBgImgOpacity: 1, // body 背景图透明度，选值 0 ~ 1.0, 默认0.5
 	bodyBgImgInterval: 30, // body多张背景图时的切换间隔, 默认15，单位s
