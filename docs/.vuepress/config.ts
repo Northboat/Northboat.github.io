@@ -51,11 +51,13 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
   
 	bodyBgImg: // 你的图片路径(必须位于 public 下)，可以是 URL
 	[	
-		"/img/bg.png",
-		// "/img/timebomb.png",
-		// "/img/titan.jpg",
+		"/img/bg.webp",
+		"/img/street.webp",
+		"/img/titan.webp",
+		"/img/timebomb.webp",
 	],
 	bodyBgImgOpacity: 1, // body 背景图透明度，选值 0 ~ 1.0, 默认0.5
+	bodyBgImgInterval: 30, // body多张背景图时的切换间隔, 默认15，单位s
 	indexImg: {
 		navColor: 2,    // 导航栏左侧名字、中间搜索框、右侧字体的颜色，1 是黑色，2 是白色。默认是 1
 		switchNavColor: true,    // 页面移出大图片的位置后，navColor 是否变换，如由白色变黑色，黑色变白色。默认是 false
@@ -123,7 +125,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     //   'https://jsd.cdn.zzko.cn/gh/xugaoyi/image_store/blog/20200507175846.jpeg'
     // ], // body背景大图，默认无。 单张图片 String | 多张图片 Array, 多张图片时隔bodyBgImgInterval切换一张。
     // bodyBgImgOpacity: 0.5, // body背景图透明度，选值 0.1~1.0, 默认0.5
-    // bodyBgImgInterval: 15, // body多张背景图时的切换间隔, 默认15，单位s
+    
     // titleBadge: false, // 文章标题前的图标是否显示，默认true
     // titleBadgeIcons: [ // 文章标题前图标的地址，默认主题内置图标
     //   '图标地址1',
@@ -131,10 +133,10 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     // ],
     // contentBgStyle: 1, // 文章内容块的背景风格，默认无. 1 方格 | 2 横线 | 3 竖线 | 4 左斜线 | 5 右斜线 | 6 点状
 
-    // updateBar: { // 最近更新栏
-    //   showToArticle: true, // 显示到文章页底部，默认true
-    //   moreArticle: '/archives' // “更多文章”跳转的页面，默认'/archives'
-    // },
+    updateBar: { // 最近更新栏
+       showToArticle: true, // 显示到文章页底部，默认true
+       moreArticle: '/archives' // “更多文章”跳转的页面，默认'/archives'
+    },
     // rightMenuBar: false, // 是否显示右侧文章大纲栏，默认true (屏宽小于1300px下无论如何都不显示)
     // sidebarOpen: false, // 初始状态是否打开左侧边栏，默认true
     // pageButton: false, // 是否显示快捷翻页按钮，默认true
@@ -275,6 +277,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 		}
     ],
 
+	// vuepress-plugin-one-click-copy
     [
 		'one-click-copy', // 代码块复制按钮
 		{
@@ -306,7 +309,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
   ],
 
   markdown: {
-    lineNumbers: true,
+    lineNumbers: false,
     extractHeaders: ['h2', 'h3'], // 提取标题到侧边栏的级别，默认['h2', 'h3']
 	externalLinks: { target: '_blank', rel: 'nofollow noopener noreferrer' },
 	plugins: [

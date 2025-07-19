@@ -21,16 +21,22 @@ $accentColor = #4A708B // 主题色
 
 // 代码块行号和实际行数对不齐（即使固定成一样），只好用 bug 修复 bug
 /* 保证代码行高固定 */
-div[class*="language-"] pre[class*="language-"] {
-  line-height: 23.043px !important;
-  white-space: pre !important;
-  overflow-x: auto;
+pre[class*="language-"] {
+  // line-height: 23.043px !important;
+  line-height: 1.5
+}
+
+pre[class*="language-"] code {
+  // line-height: 23.043px !important;
+  line-height: inherit;
 }
 
 /* 保证行号行高一致 */
 div[class*="language-"].line-numbers .line-numbers-rows > span {
-  font-size: 14px;        /* 举例：14px 等宽字体 */
-  line-height: 24px;      /* 用整数像素，不用 1.5/1.6 这种带小数的 em */
+  // font-size: 14px;        /* 举例：14px 等宽字体 */
+  display: block;
+  line-height: inherit;      /* 用整数像素，不用 1.5/1.6 这种带小数的 em */
+  height: auto !important;
 }
 
 // // 浅色模式
