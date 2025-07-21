@@ -55,7 +55,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 		"/img/street.webp",
 	],
 	bodyBgImgOpacity: 1, // body 背景图透明度，选值 0 ~ 1.0, 默认0.5
-	bodyBgImgInterval: 30, // body多张背景图时的切换间隔, 默认15，单位s
+	bodyBgImgInterval: 120, // body多张背景图时的切换间隔, 默认15，单位s
 	indexImg: {
 		navColor: 2,    // 导航栏左侧名字、中间搜索框、右侧字体的颜色，1 是黑色，2 是白色。默认是 1
 		switchNavColor: true,    // 页面移出大图片的位置后，navColor 是否变换，如由白色变黑色，黑色变白色。默认是 false
