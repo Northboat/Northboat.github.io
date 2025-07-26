@@ -71,14 +71,17 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 			// "问苍茫大地，谁主沉浮？",
 			// "唤起工农千百万，用心干，不周山下红旗乱！",
 			// "今日长缨在手, 何时缚住苍龙?",
-			"太阳照常升起",
-			"雄关漫道真如铁，而今迈步从头越",
-			"数风流人物，还看今朝",
+			// "待到山花烂漫时，她在丛中笑",
+			// "人民胜利今何在，满路新贵满目衰",
+			// "雄关漫道真如铁，而今迈步从头越",
+			
+			"就在坚冰还盖着北海的时候，我看到了怒放的梅花",
 			"萧瑟秋风今又是，换了人间",
-			"为有牺牲多壮志，敢叫日月换新天",
-			"待到山花烂漫时，她在丛中笑",
 			"今日欢呼孙大圣，只缘妖雾又重来",
-			"人民胜利今何在，满路新贵满目衰",
+			"为有牺牲多壮志，敢叫日月换新天",
+			"数风流人物，还看今朝",
+			"太阳照常升起",
+			
 		],
 		descFontSize: '1.4rem',   // desc 的字体大小，默认 1.4rem。提示：原主题是 1.1rem
 		descFadeInTime: 200,  // 描述的淡入效果持续时间，descFade 为 true 生效，默认 200 毫秒
@@ -155,7 +158,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     blogger: {
 		avatar: '/img/avatar.png',
 		name: 'Northboat',
-		slogan: '就在坚冰还盖着北海的时候，我看到了怒放的梅花',
+		slogan: '这是一场试炼',
     },
 
     // 社交图标 (显示于博主信息栏和页脚栏。内置图标：https://doc.xugaoyi.com/pages/a20ce8/#social)

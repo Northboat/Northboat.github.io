@@ -4,7 +4,7 @@ home: true
 # heroImage: /img/bg.png
 
 heroText: Northboat's Blog
-tagline: 全心全意为人民服务
+tagline: 太阳照常升起
 
 # actionText: 立刻进入 →
 # actionLink: /web/
