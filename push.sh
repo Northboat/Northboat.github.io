@@ -1,6 +1,7 @@
+#!/bin/bash
 
-echo "pushing northboat.github.io ..."
+echo "📥 pushing latest code ..."
 git add .
 git commit -m "update"
 git push
-read -p "done. press enter to exit..."
+sleep 4
