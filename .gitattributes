@@ -1,0 +1,3 @@
+# 本仓库存放的是 VuePress 构建产物，非手写源码
+# 禁止 git 对换行符做任何转换，否则每次 add 都会刷 "LF will be replaced by CRLF" 警告
+* -text
