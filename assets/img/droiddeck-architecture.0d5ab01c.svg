@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1340" height="1330" viewBox="0 0 1340 1330">
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,1 L9,5 L0,9 z" fill="#475569"/>
+  </marker>
+  <marker id="arrowB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,1 L9,5 L0,9 z" fill="#1d4ed8"/>
+  </marker>
+  <marker id="arrowT" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,1 L9,5 L0,9 z" fill="#0f766e"/>
+  </marker>
+</defs>
+<rect width="1340" height="1330" fill="#ffffff"/>
+<text x="40" y="46" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" fill="#0f172a" font-weight="700" text-anchor="start" opacity="1.0">DroidDeck 架构：平台归属与三个转换点</text>
+<text x="40" y="72" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="12.5" fill="#64748b" font-weight="400" text-anchor="start" opacity="1.0">SM8735 / Adreno 825 / Android 16 · DroidDeck 0.6.0 · runtime r9 —— 自上而下是调用方向，自下而上是画面方向</text>
+<rect x="40" y="104" width="720" height="112" rx="14" fill="#ccfbf1" stroke="#0f766e" stroke-width="1.5"/>
+<text x="64" y="136" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" fill="#134e4a" font-weight="700" text-anchor="start" opacity="1.0">DroidDeck App</text>
+<text x="736" y="136" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#0f766e" font-weight="600" text-anchor="end" opacity="1.0">android · bionic · arm64-v8a · uid 10414</text>
+<text x="64" y="166" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="13" fill="#0f172a" font-weight="400" text-anchor="start" opacity="1.0">Surface（画面）· Wayland 服务端（gamescope 连上来画帧）</text>
+<text x="64" y="190" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="13" fill="#334155" font-weight="400" text-anchor="start" opacity="1.0">DirectAudio → AudioTrack · hidraw 手柄/陀螺仪直通 · HUD / 电池 / 日志</text>
+<rect x="40" y="244" width="720" height="96" rx="14" fill="#ede9fe" stroke="#6d28d9" stroke-width="1.5" stroke-dasharray="7 5"/>
+<text x="64" y="276" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" fill="#4c1d95" font-weight="700" text-anchor="start" opacity="1.0">① proot —— 路径虚拟化，不是模拟</text>
+<text x="64" y="304" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="12.5" fill="#3b0764" font-weight="400" text-anchor="start" opacity="1.0">拦截每个 syscall 改写路径：guest 的 /  →  /data/…/files/linuxfs/…</text>
+<text x="64" y="326" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="12.5" fill="#3b0764" font-weight="400" text-anchor="start" opacity="1.0">63 条 bind · 不建 namespace · 不虚拟硬件 · 与 App 共享内核 · 无需 root</text>
+<path d="M200,216 L200,242" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="212" y="234" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11" fill="#64748b" font-weight="400" text-anchor="start" opacity="1.0">启动 libproot.so</text>
+<path d="M200,340 L200,362" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<rect x="40" y="364" width="720" height="696" rx="16" fill="#f5f8ff" stroke="#1d4ed8" stroke-width="1.8"/>
+<text x="64" y="396" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" fill="#1e3a8a" font-weight="700" text-anchor="start" opacity="1.0">proot 会话：glibc rootfs r9</text>
+<text x="736" y="396" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#1d4ed8" font-weight="600" text-anchor="end" opacity="1.0">linux · arm64 · glibc · 无 init/systemd</text>
+<rect x="68" y="420" width="350" height="88" rx="12" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
+<text x="86" y="450" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" fill="#1e3a8a" font-weight="700" text-anchor="start" opacity="1.0">Steam 客户端</text>
+<text x="86" y="470" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#1d4ed8" font-weight="600" text-anchor="start" opacity="1.0">linux / arm64 ELF · 原生，零翻译</text>
+<text x="86" y="490" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#3b5ba9" font-weight="400" text-anchor="start" opacity="1.0">Valve 的 aarch64 版，不是 SteamOS 那份 x86-64</text>
+<rect x="470" y="420" width="262" height="88" rx="12" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
+<text x="488" y="450" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" fill="#1e3a8a" font-weight="700" text-anchor="start" opacity="1.0">gamescope</text>
+<text x="488" y="470" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#1d4ed8" font-weight="600" text-anchor="start" opacity="1.0">合成 · 缩放 · 限帧 · MangoHud</text>
+<text x="488" y="490" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#3b5ba9" font-weight="400" text-anchor="start" opacity="1.0">收 Big Picture 与游戏窗口，画到 Surface</text>
+<path d="M418,464 L468,464" fill="none" stroke="#1d4ed8" stroke-width="1.8" marker-end="url(#arrowB)"/>
+<rect x="68" y="552" width="350" height="96" rx="12" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
+<text x="86" y="582" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" fill="#1e3a8a" font-weight="700" text-anchor="start" opacity="1.0">② Proton / Wine（arm64 构建）</text>
+<text x="86" y="602" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#1d4ed8" font-weight="600" text-anchor="start" opacity="1.0">kernel32 · ntdll · user32 · DXVK · vkd3d</text>
+<text x="86" y="622" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#3b5ba9" font-weight="400" text-anchor="start" opacity="1.0">Windows API 替身：换接口，不换指令集</text>
+<path d="M243,508 L243,550" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="255" y="534" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#64748b" font-weight="400" text-anchor="start" opacity="1.0">点 Play</text>
+<rect x="68" y="692" width="350" height="76" rx="12" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+<text x="86" y="722" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" fill="#78350f" font-weight="700" text-anchor="start" opacity="1.0">游戏本体：.exe / .dll + 资产</text>
+<text x="86" y="744" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#b45309" font-weight="600" text-anchor="start" opacity="1.0">windows / x86-64 PE · Steam 下的 Windows depot</text>
+<path d="M243,648 L243,690" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="255" y="674" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#64748b" font-weight="400" text-anchor="start" opacity="1.0">加载 PE · D3D→Vulkan 在 Proton 内完成</text>
+<rect x="68" y="812" width="350" height="84" rx="12" fill="#ede9fe" stroke="#6d28d9" stroke-width="1.5"/>
+<text x="86" y="840" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" fill="#4c1d95" font-weight="700" text-anchor="start" opacity="1.0">③ FEX-Emu</text>
+<text x="86" y="860" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#6d28d9" font-weight="600" text-anchor="start" opacity="1.0">解码 → IR → 生成 arm64 基本块 → 缓存</text>
+<text x="86" y="880" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#5b21b6" font-weight="400" text-anchor="start" opacity="1.0">唯一跨指令集的一层；自身是 arm64 原生程序</text>
+<path d="M243,768 L243,810" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="255" y="794" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#64748b" font-weight="400" text-anchor="start" opacity="1.0">x86-64 机器码</text>
+<rect x="470" y="812" width="262" height="84" rx="12" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
+<text x="488" y="840" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" fill="#1e3a8a" font-weight="700" text-anchor="start" opacity="1.0">Turnip（Vulkan 驱动）</text>
+<text x="488" y="860" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#1d4ed8" font-weight="600" text-anchor="start" opacity="1.0">linux / arm64 · 原生</text>
+<text x="488" y="880" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#3b5ba9" font-weight="400" text-anchor="start" opacity="1.0">Vulkan → KGSL ioctl → Adreno 825</text>
+<polyline points="418,600 455,600 455,780 600,780 600,810" fill="none" stroke="#1d4ed8" stroke-width="1.8" marker-end="url(#arrowB)"/>
+<text x="470" y="772" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11" fill="#1d4ed8" font-weight="400" text-anchor="start" opacity="1.0">Vulkan 调用 · 跨架构处由 thunk 桥接</text>
+<polyline points="418,730 490,730 490,510" fill="none" stroke="#1d4ed8" stroke-width="1.8" marker-end="url(#arrowB)"/>
+<text x="432" y="722" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#64748b" font-weight="400" text-anchor="start" opacity="1.0">游戏窗口</text>
+<polyline points="732,464 792,464 792,190 762,190" fill="none" stroke="#0f766e" stroke-width="1.8" marker-end="url(#arrowT)"/>
+<text x="812" y="294" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="12.5" fill="#0f766e" font-weight="600" text-anchor="middle">帧</text>
+<text x="812" y="316" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="12.5" fill="#0f766e" font-weight="600" text-anchor="middle">→</text>
+<text x="812" y="338" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="12.5" fill="#0f766e" font-weight="600" text-anchor="middle">屏</text>
+<text x="812" y="360" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="12.5" fill="#0f766e" font-weight="600" text-anchor="middle">幕</text>
+<path d="M243,896 L243,1082" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="255" y="1000" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#64748b" font-weight="400" text-anchor="start" opacity="1.0">arm64 机器码（交回内核执行）</text>
+<path d="M601,896 L601,1082" fill="none" stroke="#1d4ed8" stroke-width="1.8" marker-end="url(#arrowB)"/>
+<text x="613" y="980" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#64748b" font-weight="400" text-anchor="start" opacity="1.0">KGSL ioctl</text>
+<rect x="40" y="1084" width="720" height="108" rx="14" fill="#e2e8f0" stroke="#334155" stroke-width="1.5"/>
+<text x="64" y="1116" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" fill="#1e293b" font-weight="700" text-anchor="start" opacity="1.0">Linux 内核 6.6.118（Android 分支）</text>
+<text x="736" y="1116" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#334155" font-weight="600" text-anchor="end" opacity="1.0">kernel · arm64</text>
+<text x="64" y="1146" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="13" fill="#334155" font-weight="400" text-anchor="start" opacity="1.0">binder · KGSL（/dev/dri/renderD0）· SELinux · 无 KVM · 无 net namespace</text>
+<text x="64" y="1170" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="12.5" fill="#64748b" font-weight="400" text-anchor="start" opacity="1.0">Android 与 proot 会话共用这一个内核：系统调用 ABI 相同</text>
+<rect x="40" y="1220" width="720" height="68" rx="14" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"/>
+<text x="64" y="1250" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" fill="#1e293b" font-weight="700" text-anchor="start" opacity="1.0">SM8735 · Adreno 825 · 10.9 GB RAM</text>
+<text x="736" y="1250" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#475569" font-weight="600" text-anchor="end" opacity="1.0">arm64 CPU / Adreno GPU</text>
+<text x="64" y="1272" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="12" fill="#64748b" font-weight="400" text-anchor="start" opacity="1.0">手机真正的执行单元</text>
+<path d="M200,1192 L200,1218" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<path d="M601,1192 L601,1218" fill="none" stroke="#1d4ed8" stroke-width="1.8" marker-end="url(#arrowB)"/>
+<rect x="850" y="104" width="450" height="480" rx="16" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+<text x="876" y="140" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" fill="#0f172a" font-weight="700" text-anchor="start" opacity="1.0">平台归属</text>
+<rect x="876" y="169" width="14" height="14" rx="4" fill="#e2e8f0" stroke="#334155" stroke-width="1.2"/>
+<text x="904" y="182" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="12.5" fill="#334155" font-weight="700" text-anchor="start" opacity="1.0">kernel · arm64</text>
+<text x="904" y="203" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#475569" font-weight="400" text-anchor="start" opacity="1.0">硬件之上唯一的内核：binder / KGSL / SELinux</text>
+<rect x="876" y="229" width="14" height="14" rx="4" fill="#ccfbf1" stroke="#0f766e" stroke-width="1.2"/>
+<text x="904" y="242" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="12.5" fill="#0f766e" font-weight="700" text-anchor="start" opacity="1.0">android · bionic · arm64</text>
+<text x="904" y="263" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#475569" font-weight="400" text-anchor="start" opacity="1.0">App · Surface · 音频 · 输入注入</text>
+<rect x="876" y="289" width="14" height="14" rx="4" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.2"/>
+<text x="904" y="302" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="12.5" fill="#1d4ed8" font-weight="700" text-anchor="start" opacity="1.0">linux · arm64 · glibc</text>
+<text x="904" y="323" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#475569" font-weight="400" text-anchor="start" opacity="1.0">rootfs 里的一切：Steam、gamescope、Proton、Turnip</text>
+<rect x="876" y="349" width="14" height="14" rx="4" fill="#fef3c7" stroke="#b45309" stroke-width="1.2"/>
+<text x="904" y="362" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="12.5" fill="#b45309" font-weight="700" text-anchor="start" opacity="1.0">windows · x86-64 PE</text>
+<text x="904" y="383" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#475569" font-weight="400" text-anchor="start" opacity="1.0">游戏本体（.exe / .dll + 资产）</text>
+<rect x="876" y="409" width="14" height="14" rx="4" fill="#ede9fe" stroke="#6d28d9" stroke-width="1.2"/>
+<text x="904" y="422" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="12.5" fill="#6d28d9" font-weight="700" text-anchor="start" opacity="1.0">转换器 · arm64</text>
+<text x="904" y="443" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#475569" font-weight="400" text-anchor="start" opacity="1.0">proot 与 FEX：自身都是原生 arm64</text>
+<text x="876" y="502" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#64748b" font-weight="400" text-anchor="start" opacity="1.0">颜色即平台：一块硬件上并存 4 套用户态 + 2 个转换器</text>
+<text x="876" y="524" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#64748b" font-weight="400" text-anchor="start" opacity="1.0">全部跑在同一个 arm64 内核上：没有第二个内核、没有 KVM</text>
+<rect x="850" y="604" width="450" height="480" rx="16" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+<text x="876" y="640" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" fill="#0f172a" font-weight="700" text-anchor="start" opacity="1.0">三个转换点</text>
+<rect x="1236.2" y="680" width="37.53" height="22.5" rx="11.25" fill="#ccfbf1" stroke="#0f766e" stroke-width="1"/>
+<text x="1254.9650000000001" y="693.5" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#0f766e" font-weight="600" text-anchor="middle" opacity="1.0">同架构</text>
+<text x="876" y="704" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="13.5" fill="#4c1d95" font-weight="700" text-anchor="start" opacity="1.0">① proot</text>
+<text x="876" y="728" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#6d28d9" font-weight="600" text-anchor="start" opacity="1.0">换「路径 / 身份」</text>
+<text x="876" y="752" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#475569" font-weight="400" text-anchor="start" opacity="1.0">guest 的 / 映射到 App 私有目录，伪造 uid 0；</text>
+<text x="876" y="771" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#475569" font-weight="400" text-anchor="start" opacity="1.0">改写 syscall 参数，不碰指令。</text>
+<rect x="1236.2" y="804" width="37.53" height="22.5" rx="11.25" fill="#ccfbf1" stroke="#0f766e" stroke-width="1"/>
+<text x="1254.9650000000001" y="817.5" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#0f766e" font-weight="600" text-anchor="middle" opacity="1.0">同架构</text>
+<text x="876" y="828" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="13.5" fill="#4c1d95" font-weight="700" text-anchor="start" opacity="1.0">② Proton / Wine</text>
+<text x="876" y="852" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#6d28d9" font-weight="600" text-anchor="start" opacity="1.0">换「API」</text>
+<text x="876" y="876" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#475569" font-weight="400" text-anchor="start" opacity="1.0">Windows API → POSIX / Vulkan（DXVK、vkd3d）；</text>
+<text x="876" y="895" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#475569" font-weight="400" text-anchor="start" opacity="1.0">arm64 版，与游戏共享同一 CPU 架构。</text>
+<rect x="1229.6" y="928" width="44.04" height="22.5" rx="11.25" fill="#ede9fe" stroke="#6d28d9" stroke-width="1"/>
+<text x="1251.62" y="941.5" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="10.5" fill="#6d28d9" font-weight="600" text-anchor="middle" opacity="1.0">跨指令集</text>
+<text x="876" y="952" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="13.5" fill="#4c1d95" font-weight="700" text-anchor="start" opacity="1.0">③ FEX-Emu</text>
+<text x="876" y="976" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#6d28d9" font-weight="600" text-anchor="start" opacity="1.0">换「指令」</text>
+<text x="876" y="1000" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#475569" font-weight="400" text-anchor="start" opacity="1.0">x86-64 机器码 → arm64 机器码，JIT 分块翻译</text>
+<text x="876" y="1019" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#475569" font-weight="400" text-anchor="start" opacity="1.0">并缓存；唯一真正跨指令集的一层。</text>
+<text x="876" y="1056" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#334155" font-weight="600" text-anchor="start" opacity="1.0">★ 只有 ③ 在翻译机器码；① ② 都不换指令集。</text>
+<rect x="850" y="1104" width="450" height="148" rx="16" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+<text x="876" y="1136" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="14" fill="#0f172a" font-weight="700" text-anchor="start" opacity="1.0">怎么读这张图</text>
+<text x="876" y="1164" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#475569" font-weight="400" text-anchor="start" opacity="1.0">向下 = 调用：App → proot → Steam → Proton → 游戏 → FEX → 内核</text>
+<text x="876" y="1186" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#475569" font-weight="400" text-anchor="start" opacity="1.0">向上 = 画面：游戏/Steam → gamescope → App 的 Surface → 屏幕</text>
+<text x="876" y="1208" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#475569" font-weight="400" text-anchor="start" opacity="1.0">横向 = 平台切换：每跨一次颜色，就有东西被“换掉”</text>
+<text x="876" y="1234" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="11.5" fill="#64748b" font-weight="400" text-anchor="start" opacity="1.0">硬件层不虚拟任何东西，只负责执行</text>
+</svg>

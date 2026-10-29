@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="968" viewBox="0 0 1200 968" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, system-ui, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="968" fill="#fbfcfe"/>
+  <rect x="0.5" y="0.5" width="1199" height="967" rx="0" fill="none" stroke="#e8edf4"/>
+
+  <text x="60" y="66" font-size="25" font-weight="700" fill="#111827">proot 原理：没有 root，也能“换根”</text>
+  <text x="60" y="96" font-size="14.5" fill="#6b7280">Termux 里的 proot 抢在系统调用进内核之前改写路径与身份参数，造出一个“看起来像”独立 Linux 的根目录</text>
+
+  <rect x="40" y="116" width="1120" height="340" rx="14" fill="#ffffff" stroke="#e5e7eb"/>
+  <text x="64" y="146" font-size="12.5" letter-spacing="1.5" fill="#94a3b8">一次 open(“/etc/passwd”) 的旅程</text>
+
+  <rect x="64" y="168" width="236" height="112" rx="12" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="84" y="196" font-size="13.5" font-weight="600" fill="#334155">容器内的进程（tracee）</text>
+  <text x="84" y="222" font-size="12.5" fill="#0f172a" font-family="Menlo, JetBrains Mono, monospace">open(“/etc/passwd”)</text>
+  <text x="84" y="248" font-size="12" fill="#64748b">它以为根目录就是容器里的 /</text>
+
+  <line x1="300" y1="224" x2="344" y2="224" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <rect x="352" y="168" width="320" height="112" rx="12" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="372" y="196" font-size="13.5" font-weight="600" fill="#1e3a8a">proot 进程（tracer）</text>
+  <text x="372" y="220" font-size="12.5" fill="#1e40af">ptrace 暂停 tracee，读写它的参数寄存器</text>
+  <text x="372" y="244" font-size="12.5" fill="#1d4ed8" font-family="Menlo, JetBrains Mono, monospace">/etc  →  ~/ubuntu/etc</text>
+  <text x="372" y="266" font-size="11.5" fill="#64748b" font-family="Menlo, JetBrains Mono, monospace">真身 /data/data/com.termux/…</text>
+
+  <line x1="672" y1="224" x2="716" y2="224" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <rect x="724" y="168" width="220" height="112" rx="12" fill="#ecfdf5" stroke="#6ee7b7"/>
+  <text x="744" y="196" font-size="13.5" font-weight="600" fill="#065f46">Linux 内核</text>
+  <text x="744" y="220" font-size="12.5" fill="#047857">只有一个，没有虚拟化</text>
+  <text x="744" y="244" font-size="12.5" fill="#047857">照真实路径读盘</text>
+  <text x="744" y="266" font-size="11.5" fill="#6b7280">与普通 Termux 进程无异</text>
+
+  <line x1="944" y1="224" x2="968" y2="224" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <rect x="976" y="168" width="180" height="112" rx="12" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="996" y="196" font-size="13.5" font-weight="600" fill="#334155">真实文件系统</text>
+  <text x="996" y="222" font-size="12.5" fill="#475569">ext4 / f2fs</text>
+  <text x="996" y="246" font-size="12" fill="#64748b">无镜像、无虚拟盘</text>
+
+  <text x="64" y="312" font-size="12.5" font-weight="600" fill="#334155">四步走完</text>
+  <text x="64" y="340" font-size="13" fill="#374151">1  进程调用 open(“/etc/passwd”)，还没进内核就被 proot 拦住——proot 是它的父进程，用 ptrace 盯着它</text>
+  <text x="64" y="368" font-size="13" fill="#374151">2  proot 把路径参数就地改成容器里的真实路径，再放行，让内核继续执行</text>
+  <text x="64" y="396" font-size="13" fill="#374151">3  内核按真实路径读盘并返回结果，看不出任何“容器”的存在</text>
+  <text x="64" y="424" font-size="13" fill="#374151">4  回程时 proot 再把结果“翻译”回去：getuid() 的 10xxx 变成 0，getcwd() 报出 “/”</text>
+
+  <text x="60" y="496" font-size="15" font-weight="600" fill="#111827">三种“换根”，别混为一谈</text>
+
+  <rect x="60" y="512" width="340" height="150" rx="12" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="84" y="542" font-size="14.5" font-weight="600" fill="#0f172a">真 root + chroot</text>
+  <text x="84" y="572" font-size="12.5" fill="#475569">内核直接改进程的根，视图由内核维护</text>
+  <text x="84" y="598" font-size="12.5" fill="#475569">开销几乎为零，隔离最彻底</text>
+  <text x="84" y="624" font-size="12.5" fill="#475569">Termux 上拿不到 root，用不了</text>
+
+  <rect x="440" y="512" width="340" height="150" rx="12" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="464" y="542" font-size="14.5" font-weight="600" fill="#1e3a8a">proot（本笔记主角）</text>
+  <text x="464" y="572" font-size="12.5" fill="#1e40af">用户态拦截 + 路径改写，不要任何特权</text>
+  <text x="464" y="598" font-size="12.5" fill="#1e40af">每条 syscall 停两次，性能损失肉眼可见</text>
+  <text x="464" y="624" font-size="12.5" fill="#1e40af">视图是“算”出来的，内核并不认账</text>
+
+  <rect x="820" y="512" width="340" height="150" rx="12" fill="#fffbeb" stroke="#fde68a"/>
+  <text x="844" y="542" font-size="14.5" font-weight="600" fill="#92400e">proot -0（假 root）</text>
+  <text x="844" y="572" font-size="12.5" fill="#b45309">只把 getuid()/geteuid() 的返回值改成 0</text>
+  <text x="844" y="598" font-size="12.5" fill="#b45309">真实身份仍是 Termux 用户 uid=10xxx</text>
+  <text x="844" y="624" font-size="12.5" fill="#b45309">不能 chown、mount，setuid 程序全失效</text>
+
+  <text x="60" y="706" font-size="15" font-weight="600" fill="#111827">限制从哪来</text>
+
+  <circle cx="64" cy="734" r="3" fill="#94a3b8"/>
+  <text x="78" y="738" font-size="13" fill="#374151">慢：每个系统调用都被 ptrace 拦一次、改完再放行，编译、解压</text>
+  <text x="78" y="762" font-size="13" fill="#374151">这类密集 IO 最吃亏，可能有数倍差距</text>
+
+  <circle cx="64" cy="792" r="3" fill="#94a3b8"/>
+  <text x="78" y="796" font-size="13" fill="#374151">提权是假的：内核按真实 uid 校验权限，sudo 只是“看起来”成功，</text>
+  <text x="78" y="820" font-size="13" fill="#374151">一碰文件就 EACCES</text>
+
+  <circle cx="64" cy="850" r="3" fill="#94a3b8"/>
+  <text x="78" y="854" font-size="13" fill="#374151">靠路径改写吃饭：静态链接、setuid、SELinux 强管控的部分行为</text>
+  <text x="78" y="878" font-size="13" fill="#374151">无法完整模拟</text>
+
+  <circle cx="620" cy="734" r="3" fill="#94a3b8"/>
+  <text x="634" y="738" font-size="13" fill="#374151">Android 的 noexec：/sdcard 不允许执行二进制，编译产物得放</text>
+  <text x="634" y="762" font-size="13" fill="#374151">Termux 私有目录（~/c）</text>
+
+  <circle cx="620" cy="792" r="3" fill="#94a3b8"/>
+  <text x="634" y="796" font-size="13" fill="#374151">只有一个内核：/proc、/sys 与手机共享，不存在“独立机器”，</text>
+  <text x="634" y="820" font-size="13" fill="#374151">systemd、nftables 这类要特权的组件跑不起来</text>
+
+  <circle cx="620" cy="850" r="3" fill="#94a3b8"/>
+  <text x="634" y="854" font-size="13" fill="#374151">所以它适合“跑用户态程序”，不适合“搭一台服务器”</text>
+
+  <rect x="40" y="902" width="1120" height="44" rx="10" fill="#111827"/>
+  <text x="64" y="930" font-size="13.5" fill="#f9fafb">proot 不是模拟器、不是虚拟机、也不是容器：它只是内核门前的一个“改写员”——改写路径与身份参数，程序照旧跑在同一个内核上。</text>
+</svg>
